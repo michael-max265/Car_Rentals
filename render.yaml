@@ -1,0 +1,62 @@
+services:
+  # The Node.js Backend Web Service
+  - type: web
+    name: rental-server
+    env: node
+    region: ohio
+    plan: free
+    rootDir: server
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: NODE_ENV
+        value: production
+      # Add placeholders for all your secrets. Render will prompt you to fill these in the dashboard if you use Blueprint.
+      - key: FIREBASE_KEY
+        sync: false
+      - key: STRIPE_SECRET
+        sync: false
+
+  # The React Client Static Site (CRA)
+  - type: web
+    name: rental-client
+    env: static
+    region: ohio
+    plan: free
+    rootDir: client
+    buildCommand: npm install && npm run build
+    publishPath: client/build
+    envVars:
+      - key: REACT_APP_API_URL
+        # Point the client to the server we defined above
+        fromService:
+          name: rental-server
+          type: web
+          property: url
+    # Ensure client-side routing works by rewriting all requests to index.html
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+
+  # The React Admin Dashboard Static Site (Vite)
+  - type: web
+    name: rental-admin-client
+    env: static
+    region: ohio
+    plan: free
+    rootDir: admin-client
+    buildCommand: npm install && npm run build
+    publishPath: admin-client/dist
+    envVars:
+      - key: VITE_API_URL
+        fromService:
+          name: rental-server
+          type: web
+          property: url
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
