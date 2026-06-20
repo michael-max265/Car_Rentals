@@ -7,7 +7,7 @@ const Login = () => {
   const [email, setEmail]       = useState('');
   const [password, setPassword] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const { login, loginWithGoogle, loading, error, clearError } = useAuthStore();
+  const { login, loginWithGoogle, error, clearError } = useAuthStore();
   const navigate = useNavigate();
 
   useEffect(() => {

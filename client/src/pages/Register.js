@@ -9,7 +9,7 @@ const Register = () => {
   const [password, setPassword] = useState('');
   const [agreed, setAgreed]     = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const { register, loginWithGoogle, loading, error, clearError } = useAuthStore();
+  const { register, loginWithGoogle, error, clearError } = useAuthStore();
   const navigate = useNavigate();
 
   useEffect(() => {

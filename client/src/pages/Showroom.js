@@ -7,7 +7,7 @@ import useBookingStore from '../store/useBookingStore';
 import './Showroom.css';
 
 // Lazy‑load heavy assets and widgets to speed up initial load times
-const CarViewer3D = lazy(() => import('../components/CarViewer3D'));
+// const CarViewer3D = lazy(() => import('../components/CarViewer3D'));
 const LocationMap = lazy(() => import('../components/LocationMap'));
 
 // Helper to format ISO date strings safely
@@ -28,7 +28,7 @@ const INSURANCE_OPTIONS = [
 function Showroom() {
   const { cars, loading: carsLoading, error: carsError, fetchCars, selectedCar, setSelectedCar } = useCarStore();
   const { user, profile, fetchProfile } = useAuthStore();
-  const { createBooking } = useBookingStore();
+  // const { createBooking } = useBookingStore();
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
 
