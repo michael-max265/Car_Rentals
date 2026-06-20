@@ -1,0 +1,473 @@
+/* AdminDashboard.css – Custom premium styling */
+/* Reset and core variables */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Prevent the entire page from overflowing horizontally */
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+:root {
+  --font-primary: 'Inter', system-ui, sans-serif;
+  --bg-primary: #f9fafb;
+  --bg-dark: #1f2937;
+  --text-primary: #111827;
+  --text-muted: #6b7280;
+  --primary: #2563eb;
+  --secondary: #7c3aed;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --border: #e5e7eb;
+  --radius: 8px;
+  --shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+body {
+  font-family: var(--font-primary);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+/* Layout */
+.admin-dashboard {
+  max-width: 1200px;
+  width: 100%;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  /* Contain any overflowing children */
+  overflow-x: hidden;
+}
+.admin-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+.admin-header h1 {
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+/* Tabs */
+.admin-tabs {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  /* Always allow horizontal scroll so tabs never overflow the viewport */
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 4px; /* room for scrollbar on some browsers */
+}
+.admin-tabs::-webkit-scrollbar { display: none; }
+.admin-tabs .tab {
+  flex: 0 0 auto;       /* never shrink — prevents overflow */
+  white-space: nowrap;
+  padding: 0.6rem 1.1rem;
+  background: var(--bg-dark);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background 0.2s;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+.admin-tabs .tab.active {
+  background: var(--primary);
+}
+.admin-tabs .tab:hover {
+  background: var(--secondary);
+}
+/* Sections */
+.admin-section {
+  margin-top: 1.5rem;
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.section-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+.section-header h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  min-width: 0;          /* allow text to shrink */
+  flex: 1 1 auto;
+}
+.action-btn {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;   /* prevent button text from wrapping */
+  flex-shrink: 0;
+}
+.action-btn:hover {
+  background: var(--secondary);
+}
+/* Table */
+.admin-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 0.5rem;
+}
+.admin-table th,
+.admin-table td {
+  padding: 0.6rem 0.8rem;
+  text-align: left;
+}
+.admin-table th {
+  background: var(--bg-dark);
+  color: #fff;
+  font-weight: 500;
+  border-top-left-radius: var(--radius);
+  border-top-right-radius: var(--radius);
+}
+.admin-table tbody tr {
+  background: #fff;
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
+}
+.admin-table tbody tr:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+}
+.admin-table .empty-row td {
+  text-align: center;
+  color: var(--text-muted);
+  font-style: italic;
+}
+.color-badge {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+}
+.edit-btn, .delete-btn {
+  background: transparent;
+  border: none;
+  color: var(--primary);
+  cursor: pointer;
+  margin-right: 0.4rem;
+  font-weight: 500;
+}
+.delete-btn {
+  color: var(--danger);
+}
+/* KPI Cards */
+.kpi-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.kpi-card {
+  flex: 1 1 200px;
+  background: var(--bg-dark);
+  color: #fff;
+  padding: 1rem;
+  border-radius: var(--radius);
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+.kpi-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+.kpi-label {
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+.kpi-value {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+/* Charts */
+.analytics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+.chart-loading {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1rem;
+  color: var(--text-muted);
+}
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.modal {
+  background: #fff;
+  border-radius: var(--radius);
+  width: 90%;
+  max-width: 700px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+}
+.modal-title {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+.modal-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.modal-form .form-group {
+  margin-bottom: 0;
+}
+.modal-form .form-group.full-width {
+  grid-column: 1 / -1;
+}
+.modal-form label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+}
+.modal-form input,
+.modal-form textarea {
+  width: 100%;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-family: var(--font-primary);
+}
+.modal-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+.btn-cancel {
+  background: var(--border);
+  color: var(--text-primary);
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+.btn-primary:hover {
+  background: var(--secondary);
+}
+.btn-cancel:hover {
+  background: #d1d5db;
+}
+/* ── Table wrapper: horizontal scroll on small screens ── */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: var(--radius);
+}
+
+/* Badge styles used in bookings table */
+.badge {
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+.badge.success { background: #d1fae5; color: #065f46; }
+.badge.warning { background: #fef3c7; color: #92400e; }
+
+/* ── Responsive: Tablet & below (≤ 900px) ── */
+@media (max-width: 900px) {
+  .admin-dashboard {
+    padding: 0 0.75rem;
+    margin: 1rem auto;
+  }
+
+  .admin-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .admin-header h1 {
+    font-size: 1.4rem;
+  }
+
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .analytics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .kpi-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+}
+
+/* ── Responsive: Mobile (≤ 640px) ── */
+@media (max-width: 640px) {
+  .admin-dashboard {
+    padding: 0 0.5rem;
+    margin: 0.5rem auto;
+  }
+
+  /* Header */
+  .admin-header h1 {
+    font-size: 1.2rem;
+  }
+
+  /* Tabs: horizontal scroll instead of wrapping vertically */
+  .admin-tabs {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    gap: 0.4rem;
+    padding-bottom: 0.25rem;
+    /* hide scrollbar but keep scrollability */
+    scrollbar-width: none;
+  }
+  .admin-tabs::-webkit-scrollbar { display: none; }
+  .admin-tabs .tab {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    padding: 0.55rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  /* Section */
+  .admin-section {
+    padding: 1rem 0.75rem;
+  }
+
+  .section-header h2 {
+    font-size: 1.1rem;
+  }
+
+  .action-btn {
+    width: 100%;
+    text-align: center;
+    padding: 0.55rem 0;
+    font-size: 0.9rem;
+  }
+
+  /* KPI row: 2-column grid on mobile */
+  .kpi-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+  }
+
+  .kpi-card {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .kpi-icon { font-size: 1.5rem; }
+  .kpi-label { font-size: 0.78rem; }
+  .kpi-value { font-size: 1.1rem; }
+
+  /* Tables: compact text + sticky first column */
+  .admin-table th,
+  .admin-table td {
+    padding: 0.5rem 0.6rem;
+    font-size: 0.78rem;
+    white-space: nowrap;
+  }
+
+  .edit-btn, .delete-btn {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.5rem;
+    border: 1px solid currentColor;
+    border-radius: 4px;
+  }
+
+  .action-cell {
+    display: flex;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+  }
+
+  /* Modal: full-screen on mobile */
+  .modal-overlay {
+    align-items: flex-end;   /* slide up from bottom */
+    padding: 0;
+  }
+
+  .modal {
+    width: 100%;
+    max-width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: 16px 16px 0 0;
+    padding: 1.25rem 1rem;
+  }
+
+  .modal-form {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-form .form-group.full-width {
+    grid-column: 1;
+  }
+
+  .modal-title {
+    font-size: 1.1rem;
+  }
+
+  .modal-actions {
+    flex-direction: column-reverse;
+    gap: 0.5rem;
+  }
+
+  .btn-primary, .btn-cancel {
+    width: 100%;
+    padding: 0.65rem;
+    font-size: 0.95rem;
+    text-align: center;
+  }
+
+  /* Analytics grid: single column */
+  .analytics-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  /* Tracking map height on mobile */
+  .admin-section .leaflet-container {
+    height: 300px !important;
+  }
+}

@@ -1,0 +1,66 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+.App {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Global loading screen styles */
+.global-loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  background: #f9fafb;
+}
+
+.global-loader-spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(37, 99, 235, 0.1);
+  border-left-color: #2563eb;
+  border-radius: 50%;
+  animation: global-spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+.global-loader-text {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 1.1rem;
+  color: #4b5563;
+  font-weight: 500;
+}
+
+@keyframes global-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Skeleton Loading utility classes */
+.skeleton {
+  background-color: #e5e7eb;
+  background-image: linear-gradient(
+    90deg,
+    #e5e7eb 0px,
+    #f3f4f6 40px,
+    #e5e7eb 80px
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shine 1.5s infinite linear;
+}
+
+@keyframes skeleton-shine {
+  0% { background-position: -100% 0; }
+  100% { background-position: 100% 0; }
+}

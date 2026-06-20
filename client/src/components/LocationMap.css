@@ -1,0 +1,133 @@
+/* LocationMap.css – Pickup/drop-off location map */
+
+.location-map-section {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.location-map-section h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #1f2937;
+}
+
+.location-map-container {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  height: 350px;
+}
+
+.location-map-container .leaflet-container {
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* Custom popup styling */
+.location-popup {
+  text-align: center;
+}
+
+.location-popup h4 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #1f2937;
+}
+
+.location-popup p {
+  font-size: 12px;
+  color: #6b7280;
+  margin: 0;
+}
+
+.location-popup .popup-hours {
+  font-size: 11px;
+  color: #10b981;
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+/* Home page variant */
+.home-map-section {
+  padding: 4rem 2rem;
+  background: #f9fafb;
+}
+
+.home-map-section .home-section-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.home-map-section .section-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.home-map-container {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  height: 400px;
+}
+
+.home-map-container .leaflet-container {
+  height: 100%;
+  width: 100%;
+}
+
+/* Location cards below map */
+.location-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.location-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.location-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.location-card h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 4px;
+}
+
+.location-card p {
+  font-size: 13px;
+  color: #6b7280;
+  margin: 0;
+}
+
+.location-card .card-hours {
+  font-size: 12px;
+  color: #10b981;
+  font-weight: 500;
+  margin-top: 6px;
+}
+
+@media (max-width: 768px) {
+  .location-map-container {
+    height: 280px;
+  }
+  .home-map-container {
+    height: 300px;
+  }
+}

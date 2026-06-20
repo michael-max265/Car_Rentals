@@ -1,0 +1,30 @@
+:root {
+  --color-bg: hsl(210, 12%, 8%);
+  --color-surface: hsla(210, 12%, 15%, 0.85);
+  --color-primary: hsl(210, 80%, 58%);
+  --color-accent: hsl(340, 70%, 60%);
+  --color-success: hsl(140, 70%, 45%);
+  --color-warning: hsl(40, 80%, 55%);
+  --color-danger: hsl(0, 70%, 55%);
+  --glass-blur: 12px;
+  --font-primary: 'Inter', system-ui, -apple-system, sans-serif;
+  --radius: 12px;
+  --spacing: 1rem;
+}
+
+body {
+  background: var(--color-bg);
+  color: #e0e7ff;
+  font-family: var(--font-primary);
+  margin: 0;
+}
+
+.card {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  backdrop-filter: blur(var(--glass-blur));
+  padding: var(--spacing);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover { transform: translateY(-4px); }

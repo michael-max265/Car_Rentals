@@ -1,0 +1,203 @@
+/* VehicleTrackingMap.css – Admin vehicle tracking */
+
+.tracking-section {
+  margin-top: 1rem;
+}
+
+.tracking-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tracking-header h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.tracking-stats {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.tracking-stat {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #1f2937;
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.tracking-stat .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.tracking-stat .dot.active {
+  background: #10b981;
+  box-shadow: 0 0 6px #10b981;
+}
+
+.tracking-stat .dot.parked {
+  background: #f59e0b;
+}
+
+.tracking-stat .dot.total {
+  background: #3b82f6;
+}
+
+.tracking-map-container {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  height: 500px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.tracking-map-container .leaflet-container {
+  height: 100%;
+  width: 100%;
+}
+
+/* Vehicle popup */
+.vehicle-popup {
+  min-width: 180px;
+}
+
+.vehicle-popup h4 {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: #1f2937;
+}
+
+.vehicle-popup .popup-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-bottom: 3px;
+}
+
+.vehicle-popup .popup-row .label {
+  color: #6b7280;
+}
+
+.vehicle-popup .popup-row .value {
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.vehicle-popup .popup-status {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.vehicle-popup .popup-status.moving {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.vehicle-popup .popup-status.parked {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+/* Vehicle list below map */
+.tracking-vehicle-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.tracking-vehicle-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.tracking-vehicle-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.tracking-vehicle-icon {
+  font-size: 1.8rem;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f3f4f6;
+  border-radius: 10px;
+}
+
+.tracking-vehicle-info h4 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.tracking-vehicle-info p {
+  font-size: 12px;
+  color: #6b7280;
+  margin: 0;
+}
+
+.tracking-vehicle-status {
+  margin-left: auto;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.tracking-vehicle-status.moving {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.tracking-vehicle-status.parked {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.tracking-empty {
+  text-align: center;
+  padding: 3rem;
+  color: #6b7280;
+}
+
+.tracking-empty .empty-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .tracking-map-container {
+    height: 350px;
+  }
+  .tracking-vehicle-list {
+    grid-template-columns: 1fr;
+  }
+}

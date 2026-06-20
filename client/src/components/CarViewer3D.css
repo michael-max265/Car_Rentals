@@ -1,0 +1,176 @@
+/* ── 3D Car Viewer Styles ────────────────── */
+.car-viewer-container {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  background-color: #f1f5f9;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.car-viewer-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+}
+
+.car-viewer-canvas:active {
+  cursor: grabbing;
+}
+
+/* UI Controls Overlay */
+.car-viewer-overlay {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.car-viewer-card {
+  pointer-events: auto;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 10px;
+  padding: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.car-viewer-rotate-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.car-viewer-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #334155;
+}
+
+/* Premium Sleek Toggle Switch */
+.car-viewer-toggle {
+  position: relative;
+  width: 44px;
+  height: 22px;
+  background: #cbd5e1;
+  border-radius: 99px;
+  border: none;
+  cursor: pointer;
+  padding: 2px;
+  transition: background-color 0.2s ease;
+}
+
+.car-viewer-toggle.active {
+  background: #4747f5;
+}
+
+.car-viewer-toggle-dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease;
+}
+
+.car-viewer-toggle.active .car-viewer-toggle-dot {
+  transform: translateX(22px);
+}
+
+/* Color Picker */
+.car-viewer-paint-title {
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #64748b;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.car-viewer-palette-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+}
+
+.car-viewer-color-btn {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.car-viewer-color-btn:hover {
+  transform: scale(1.15);
+}
+
+.car-viewer-color-btn.selected {
+  transform: scale(1.15);
+  border-color: #0f172a;
+}
+
+.car-viewer-reset-btn {
+  background: none;
+  border: none;
+  color: #4747f5;
+  font-size: 0.75rem;
+  font-weight: 600;
+  width: 100%;
+  margin-top: 8px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.car-viewer-reset-btn:hover {
+  text-decoration: underline;
+}
+
+.car-viewer-env-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 110px;
+}
+
+.env-theme-btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 6px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.env-theme-btn:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+.env-theme-btn.active {
+  background: #4747f5;
+  border-color: #4747f5;
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(71,71,245,0.15);
+}
