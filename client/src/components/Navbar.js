@@ -4,7 +4,7 @@ import useAuthStore from '../store/useAuthStore';
 import './Navbar.css';
 
 function Navbar() {
-  const { user, profile, logout } = useAuthStore();
+  const { user, logout } = useAuthStore();
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
 

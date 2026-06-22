@@ -3,7 +3,6 @@ import { useSearchParams, useNavigate } from 'react-router-dom';
 import BookingCalendar from '../components/BookingCalendar';
 import useCarStore from '../store/useCarStore';
 import useAuthStore from '../store/useAuthStore';
-import useBookingStore from '../store/useBookingStore';
 import './Showroom.css';
 
 // Lazy‑load heavy assets and widgets to speed up initial load times
