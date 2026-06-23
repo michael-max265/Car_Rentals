@@ -13,7 +13,15 @@ services:
         value: 10000
       - key: NODE_ENV
         value: production
-      - key: FIREBASE_KEY
+      - key: FIREBASE_PROJECT_ID
         sync: false
-      - key: STRIPE_SECRET
+      - key: FIREBASE_PRIVATE_KEY
+        sync: false
+      - key: FIREBASE_CLIENT_EMAIL
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: CLIENT_URL
+        sync: false
+      - key: STRIPE_SECRET_KEY
         sync: false
