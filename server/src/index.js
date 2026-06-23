@@ -19,7 +19,9 @@ initializeFirebase();
 
 // Allowed origins for CORS
 const allowedOrigins = [
-  process.env.CLIENT_URL || 'http://localhost:3001',
+  ...(process.env.ALLOWED_ORIGINS || '').split(',').map(o => o.trim()).filter(Boolean),
+  'http://localhost:3001',
+  'http://localhost:3000',
   'http://localhost:5173', // admin-client Vite dev server
 ];
 
