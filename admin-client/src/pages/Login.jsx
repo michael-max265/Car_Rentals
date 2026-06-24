@@ -20,7 +20,7 @@ const Login = () => {
       const redirect = location.state?.from?.pathname || '/dashboard';
       navigate(redirect, { replace: true });
     } catch (err) {
-      setError('Login failed. Please check your credentials.');
+      setError(err.message || 'Login failed. Please check your credentials.');
       console.error(err);
     } finally {
       setLoading(false);

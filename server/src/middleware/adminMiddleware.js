@@ -1,9 +1,10 @@
-import { getAuth } from '../config/firebase.js';
+import { getAuth, getFirestore } from '../config/firebase.js';
 
 /**
  * Middleware to ensure the request is made by an authenticated admin user.
  * It expects a valid Firebase ID token in the Authorization header.
- * If verification succeeds and the user has a `role` claim equal to "admin",
+ * If verification succeeds and the user has a `role` claim equal to "admin"
+ * or has `isAdmin` equal to true in their Firestore user profile,
  * `req.user` is populated and `next()` is called. Otherwise a 403 response
  * is returned.
  */
@@ -16,7 +17,12 @@ export const requireAdmin = async (req, res, next) => {
   try {
     const auth = getAuth();
     const decoded = await auth.verifyIdToken(token);
-    if (decoded.role !== 'admin') {
+    
+    const db = getFirestore();
+    const userDoc = await db.collection('users').doc(decoded.uid).get();
+    const isAdmin = decoded.role === 'admin' || (userDoc.exists && userDoc.data().isAdmin === true);
+
+    if (!isAdmin) {
       return res.status(403).json({ error: 'Forbidden: Admins only' });
     }
     req.user = decoded;
